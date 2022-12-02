@@ -2,6 +2,7 @@ package main
 
 import (
 	"archive/zip"
+	_ "embed"
 	"errors"
 	"fmt"
 	"io"
@@ -123,10 +124,13 @@ func logBegin(c *gin.Context) {
 	log.Println("Start compress task")
 }
 
+//go:embed index.html
+var indexHTML string
+
 func main() {
 	route := gin.Default()
 	route.GET("/*any", func(c *gin.Context) {
-		c.File("index.html")
+		c.Data(200, "text/html", []byte(indexHTML))
 	})
 	route.POST("/*any", logBegin, func(c *gin.Context) {
 		header, err := c.FormFile("file")
