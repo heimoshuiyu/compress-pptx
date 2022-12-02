@@ -23,7 +23,9 @@ type DeEnCoder struct {
 
 var mediaTypes = map[string]DeEnCoder{
 	".jpg": {Decoder: "mjpeg", Encoder: "mjpeg"},
-	".png": {Decoder: "png_pipe", Encoder: "image2"},
+	".png": {Decoder: "png_pipe", Encoder: "image2", Args: []string{
+		"-c:v", "png", "-pred", "mixed", "-compression_level", "9",
+	}},
 	".mov": {Decoder: "mov", Encoder: "mov", Args: []string{
 		"-af", "loudnorm=I=-16:LRA=11:TP=-1.5",
 	}},
