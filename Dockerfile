@@ -9,6 +9,6 @@ RUN go build -v -o /compress-pptx
 
 FROM jrottenberg/ffmpeg
 WORKDIR /
-COPY --from=build /src/compress-pptx /compress-pptx
+COPY --from=build /compress-pptx /compress-pptx
 EXPOSE 8888
 ENTRYPOINT ["/compress-pptx"]
