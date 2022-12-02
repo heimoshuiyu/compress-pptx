@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Compress PPTX</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="Compress your PPTX file" />
+  <style>
+    form {
+      display: flex;
+      flex-direction: column;
+      border: solid pink;
+      max-width: 39rem;
+    }
+
+    form>* {
+      margin: 0.5rem;
+    }
+
+    input {
+      background-color: pink;
+      padding: 0.3rem;
+      border-radius: 0.3rem;
+    }
+  </style>
+</head>
+
+<body>
+  <h5>Compress PPTX</h5>
+  <form id="form" method="POST" enctype="multipart/form-data">
+    <div>
+      <span>Select your PPTX file: </span>
+      <input type="file" name="file" />
+    </div>
+    <input type="submit" value="upload" />
+    <p>
+      There are <strong>no progress bar</strong> while uploading file. So
+      please wait...
+    </p>
+    <p>
+      We will use ffmpeg to compress images and videos. The compression happens in real time, and
+      you can download the file as soon as the upload is complete. Supported format include: pptx,
+      docx, odp, odt
+    </p>
+    <p>
+      In general, compression
+      <strong>does not cause any content and format changes</strong> but greatly reduce file size.
+      We will do the following things:
+    <ul>
+      <li>Scan all media in PPTX</li>
+      <li>Use ffmpeg to transcode images and videos</li>
+      <li>Perform audio normalization for video</li>
+    </ul>
+    </p>
+    <p>
+      This program is just a toy. No information is collected. Files are
+      not saved on the server. For more details, you can check the source
+      code.
+    </p>
+  </form>
+</body>
+
+</html>
